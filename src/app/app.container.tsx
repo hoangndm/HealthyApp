@@ -8,7 +8,7 @@ import {Global} from '@src/core/utils/appHelper';
 
 interface Theme {}
 type AppProps = {
-  loginSelectorData: any;
+  loginSelectorData?: any;
 };
 
 class AppContainer extends React.PureComponent<AppProps> {
