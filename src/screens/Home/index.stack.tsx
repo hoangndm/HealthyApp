@@ -2,9 +2,7 @@ import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import homeStack from './routes';
 import HomeScreen from './contents/Home.screen';
-import EventList from '../Event/contents/ListEvents.screen';
 import NotifiList from '../Notification/contents/NotificationList.screen';
-import settingScreen from '../Setting/contents/index';
 
 const Stack = createStackNavigator();
 
