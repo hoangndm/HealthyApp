@@ -187,31 +187,31 @@ export class Flatlist extends Component<FlatlistProps, State> {
       },
       this.props.style,
     ]);
-    if (!this.state.isReady) {
-      setTimeout(() => {
-        this.setState({unhandledError: true});
-      }, 2000);
-      if (!this.state.unhandledError) {
-        return (
-          <View style={styles.loading}>
-            <ActivityIndicator />
-          </View>
-        );
-      }
-      return (
-        <View>
-          <Text style={[styles.emptyText, styles.errorColor]}>
-            Đã xảy ra lỗi. Vui lòng thử lại
-          </Text>
-          <TouchableOpacity
-            style={styles.reloadButton}
-            activeOpacity={0.7}
-            onPress={this._onRefresh}>
-            <Text style={styles.reloadText}>Tải lại trang</Text>
-          </TouchableOpacity>
-        </View>
-      );
-    }
+    // if (!this.state.isReady) {
+    //   setTimeout(() => {
+    //     this.setState({unhandledError: true});
+    //   }, 2000);
+    //   if (!this.state.unhandledError) {
+    //     return (
+    //       <View style={styles.loading}>
+    //         <ActivityIndicator />
+    //       </View>
+    //     );
+    //   }
+    //   return (
+    //     <View>
+    //       <Text style={[styles.emptyText, styles.errorColor]}>
+    //         Đã xảy ra lỗi. Vui lòng thử lại
+    //       </Text>
+    //       <TouchableOpacity
+    //         style={styles.reloadButton}
+    //         activeOpacity={0.7}
+    //         onPress={this._onRefresh}>
+    //         <Text style={styles.reloadText}>Tải lại trang</Text>
+    //       </TouchableOpacity>
+    //     </View>
+    //   );
+    // }
     return (
       <FlatList
         {...this.props}

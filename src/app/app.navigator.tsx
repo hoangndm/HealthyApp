@@ -17,7 +17,7 @@ const Stack = createStackNavigator();
 class AppNavigator extends Component<Props, State> {
   initRender = () => {
     const {isToken} = this.props;
-    if (isToken) {
+    // if (isToken) {
       return (
         <Stack.Screen
           name={rootStack.homeStack}
@@ -27,30 +27,30 @@ class AppNavigator extends Component<Props, State> {
           }}
         />
       );
-    } else {
-      return (
-        <Stack.Screen
-          name={authStack.loginScreen}
-          component={AuthStack}
-          options={{
-            headerShown: false,
-          }}
-        />
-      );
-    }
+    // } else {
+    //   return (
+    //     <Stack.Screen
+    //       name={authStack.loginScreen}
+    //       component={AuthStack}
+    //       options={{
+    //         headerShown: false,
+    //       }}
+    //     />
+    //   );
+    // }
   };
   render() {
     return (
       <NavigationContainer ref={NavigationService.navigationRef}>
         <Stack.Navigator>
           {this.initRender()}
-          {/* <Stack.Screen
+          <Stack.Screen
             name="rootStack"
             component={RootStack}
             options={{
               headerShown: false,
             }}
-          /> */}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );
