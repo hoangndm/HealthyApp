@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Dimensions, Image } from 'react-native';
 
 const data = [
   {
@@ -34,25 +34,30 @@ const numColumns = 2;
 export default class App extends React.Component {
   renderItem = ({ item, index }) => {
     if (item.empty === true) {
-      return <View style={[styles.item, styles.itemInvisible]} />;
+      return <View style={[styles.item, styles.itemInvisible]} />
     }
     return (
       <View
         style={styles.item}
       >
-        <Text style={styles.itemText}>{item.key}</Text>
+        <Text style={styles.itemText}>{item.title}</Text>
       </View>
     );
   };
 
   render() {
     return (
-      <FlatList
-        data={formatData(data, numColumns)}
-        style={styles.container}
-        renderItem={this.renderItem}
-        numColumns={numColumns}
-      />
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Image source={require('@src/assets/images/avatar.jpg')} style={styles.avatar}/>
+        </View>
+        <FlatList
+          data={formatData(data, numColumns)}
+          style={styles.flatlist}
+          renderItem={this.renderItem}
+          numColumns={numColumns}
+        />
+      </View>
     );
   }
 }
@@ -61,6 +66,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgb(29,157,158)'
+  },
+  header: {
+    height: 100,
+    backgroundColor: '#fff',
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15
+  },
+  avatar: {
+    width: 50,
+    height: 50,
+    borderRadius: 25
+  },
+  flatlist: {
+
   },
   item: {
     backgroundColor: '#4D243D',
