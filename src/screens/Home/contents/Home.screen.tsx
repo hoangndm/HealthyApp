@@ -3,21 +3,25 @@ import { StyleSheet, Text, View, FlatList, Dimensions, Image } from 'react-nativ
 
 const data = [
   {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'First Item',
-      },
-      {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Second Item',
-      },
-      {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Third Item',
-      },
-      {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Fourth Item',
-      }
+    id: '1',
+    title: 'Lịch trình',
+    backgroundImage: require('@src/assets/images/background-calendar.jpg')
+  },
+  {
+    id: '2',
+    title: 'Món ăn hằng ngày',
+    backgroundImage: require('@src/assets/images/background-dailyfood.jpg')
+  },
+  {
+    id: '3',
+    title: 'Tình trạng sức khỏe',
+    backgroundImage: require('@src/assets/images/background-health.jpg')
+  },
+  {
+    id: '4',
+    title: 'Thể dục',
+    backgroundImage: require('@src/assets/images/background-sport.jpg')
+  }
 ];
 
 const formatData = (data, numColumns) => {
@@ -37,9 +41,8 @@ export default class App extends React.Component {
       return <View style={[styles.item, styles.itemInvisible]} />
     }
     return (
-      <View
-        style={styles.item}
-      >
+      <View style={styles.item} >
+        <Image source={item.backgroundImage} style={styles.itemImage} />
         <Text style={styles.itemText}>{item.title}</Text>
       </View>
     );
@@ -49,6 +52,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
+          <Text style={styles.auth}>Hi, Quang!</Text>
           <Image source={require('@src/assets/images/avatar.jpg')} style={styles.avatar}/>
         </View>
         <FlatList
@@ -64,36 +68,59 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'rgb(29,157,158)'
+    flex: 1
   },
   header: {
     height: 100,
     backgroundColor: '#fff',
     borderBottomLeftRadius: 15,
-    borderBottomRightRadius: 15
+    borderBottomRightRadius: 15,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 20,
+    flexDirection: "row",
+    justifyContent: "space-between"
   },
   avatar: {
     width: 50,
     height: 50,
     borderRadius: 25
   },
+  auth: {
+    fontFamily: 'HKGrotesk-Bold',
+    fontSize: 30
+  },
   flatlist: {
-
+    margin: 20
   },
   item: {
-    backgroundColor: '#4D243D',
-    alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-    margin: 20,
-    borderRadius: 25,
-    height: Dimensions.get('window').width / numColumns 
+    margin: 10,
+    borderRadius: 15,
+    height: Dimensions.get('window').width / numColumns ,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 5,
+      height: 5,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    elevation: 5,
+  },
+  itemImage: {
+    height: 200,
+    width: 160,
+    position: 'absolute'
   },
   itemInvisible: {
     backgroundColor: 'transparent',
   },
   itemText: {
-    color: '#fff',
+    color: 'dimgray',
+    fontWeight: 'bold',
+    fontSize: 15,
+    marginLeft: 20,
+    width: '50%'
   },
 });
