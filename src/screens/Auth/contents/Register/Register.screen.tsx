@@ -13,8 +13,6 @@ import {
 import {QuickView, Body, Container} from '@src/components';
 import {connect} from 'react-redux';
 import NavigationService from '@utils/navigation';
-import LinearGradient from 'react-native-linear-gradient';
-import {Button} from 'react-native-elements';
 
 const {width, height} = Dimensions.get('window');
 interface Props {}
@@ -39,177 +37,234 @@ class RegisterScreen extends PureComponent<Props, State> {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'height' : 'height'}
         style={{flex: 1}}>
-        <Container scroll>
-          <LinearGradient
-            style={{width: width, height: height}}
-            colors={['#FBD786', '#F7797D']}
-            start={{x: 0.9, y: 0.1}}
-            end={{x: 1, y: 0.7}}>
-            <SafeAreaView>
-              <Body>
-                <QuickView
-                  backgroundColor="#FFFFFF"
-                  center
-                  width={100}
-                  height={100}
-                  marginTop={20}
-                  borderRadius={100}>
-                  <Image
-                    style={{width: 100, height: 100}}
-                    source={require('@src/assets/images/logo.png')}
-                  />
-                </QuickView>
-                <QuickView
-                  width={width - 30}
-                  alignSelf="center"
-                  height={500}
-                  borderRadius={20}
-                  marginTop={30}
-                  paddingHorizontal={20}
-                  backgroundColor="#FFFFFF">
+        <Container>
+          <SafeAreaView />
+          <Body scroll>
+            <QuickView
+              width={width - 10}
+              alignSelf="center"
+              height={500}
+              borderRadius={20}
+              marginTop={30}
+              backgroundColor="#FFFFFF">
+              <Text
+                style={{
+                  textAlign: 'center',
+                  fontWeight: 'bold',
+                  fontSize: 18,
+                  marginVertical: 10,
+                  marginTop: 40,
+                  color: '#222222',
+                }}>
+                Register your Account
+              </Text>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  fontSize: 16,
+                  color: '#555555',
+                }}>
+                Your data is 100% private and secure
+              </Text>
+              <QuickView row>
+                <QuickView width="50%">
                   <Text
                     style={{
-                      textAlign: 'center',
-                      fontWeight: 'bold',
-                      fontSize: 16,
-                      marginVertical: 20,
+                      marginBottom: 10,
+                      marginLeft: 20,
                       marginTop: 40,
+                      fontSize: 16,
                     }}>
-                    ĐĂNG KÝ
-                  </Text>
-                  <Text style={{marginBottom: 10, marginLeft: 20}}>
-                    Họ và tên:
+                    First Name:
                   </Text>
                   <TextInput
-                    placeholder="Nhập họ và tên..."
+                    placeholder="Type First Name..."
                     keyboardType="default"
-                    placeholderTextColor="#CCD2E0"
+                    placeholderTextColor="#cccccc"
                     onChangeText={(text: any) => {
                       this.setState({
                         fullName: text,
                       });
                     }}
                     style={{
-                      width: '90%',
-                      height: 40,
+                      width: '80%',
+                      height: 50,
                       color: '#000',
                       paddingVertical: 3,
-                      backgroundColor: '#fff',
+                      backgroundColor: '#f2f2f2',
                       borderRadius: 10,
                       alignSelf: 'center',
                       paddingHorizontal: 10,
                       fontSize: 14,
-                      borderColor: 'rgba(216, 58, 58, 0.38)',
-                      borderWidth: 1,
                     }}
                   />
-                  <Text style={{marginVertical: 10, marginLeft: 20}}>
-                    Số điện thoại:
-                  </Text>
-                  <TextInput
-                    placeholder="Nhập số điện thoại..."
-                    keyboardType="numeric"
-                    placeholderTextColor="#CCD2E0"
-                    onChangeText={(text: any) => {
-                      this.setState({
-                        phoneNumber: text,
-                      });
-                    }}
-                    style={{
-                      width: '90%',
-                      height: 40,
-                      color: '#000',
-                      paddingVertical: 3,
-                      backgroundColor: '#fff',
-                      borderRadius: 10,
-                      alignSelf: 'center',
-                      paddingHorizontal: 10,
-                      fontSize: 14,
-                      borderColor: 'rgba(216, 58, 58, 0.38)',
-                      borderWidth: 1,
-                    }}
-                  />
-                  <Text
-                    style={{marginBottom: 10, marginLeft: 20, marginTop: 10}}>
-                    Mật khẩu:
-                  </Text>
-                  <TextInput
-                    placeholder="Nhập mật khẩu..."
-                    placeholderTextColor="#CCD2E0"
-                    onChangeText={(text: any) => {
-                      this.setState({
-                        password: text,
-                      });
-                    }}
-                    style={{
-                      width: '90%',
-                      height: 40,
-                      color: '#000',
-                      paddingVertical: 3,
-                      backgroundColor: '#fff',
-                      borderRadius: 10,
-                      alignSelf: 'center',
-                      paddingHorizontal: 10,
-                      fontSize: 14,
-                      borderColor: 'rgba(216, 58, 58, 0.38)',
-                      borderWidth: 1,
-                    }}
-                    secureTextEntry={true}
-                  />
-                  <Text
-                    style={{marginBottom: 10, marginLeft: 20, marginTop: 10}}>
-                    Nhập lại mật khẩu:
-                  </Text>
-                  <TextInput
-                    placeholder="Nhập mật khẩu..."
-                    placeholderTextColor="#CCD2E0"
-                    style={{
-                      width: '90%',
-                      height: 40,
-                      color: '#000',
-                      paddingVertical: 3,
-                      backgroundColor: '#fff',
-                      borderRadius: 10,
-                      alignSelf: 'center',
-                      paddingHorizontal: 10,
-                      fontSize: 14,
-                      borderColor: 'rgba(216, 58, 58, 0.38)',
-                      borderWidth: 1,
-                    }}
-                    secureTextEntry={true}
-                  />
-                  <LinearGradient
-                    style={{
-                      width: 160,
-                      alignItems: 'center',
-                      alignSelf: 'center',
-                      borderRadius: 30,
-                      marginTop: 25,
-                    }}
-                    colors={['#FBD786', '#F7797D']}
-                    start={{x: 1, y: 0}}
-                    end={{x: 0.1, y: 0}}>
-                    <TouchableOpacity
-                      style={{
-                        width: 160,
-                        height: 35,
-                        alignSelf: 'center',
-                        alignItems: 'center',
-                      }}>
-                      <Text
-                        style={{
-                          marginTop: 8,
-                          color: '#FFFFFF',
-                          fontWeight: 'bold',
-                        }}>
-                        ĐĂNG KÝ
-                      </Text>
-                    </TouchableOpacity>
-                  </LinearGradient>
                 </QuickView>
-              </Body>
-            </SafeAreaView>
-          </LinearGradient>
+                <QuickView width="50%">
+                  <Text
+                    style={{marginBottom: 10, marginLeft: 20, marginTop: 40}}>
+                    Last Name:
+                  </Text>
+                  <TextInput
+                    placeholder="Type Last Name..."
+                    keyboardType="default"
+                    placeholderTextColor="#cccccc"
+                    onChangeText={(text: any) => {
+                      this.setState({
+                        fullName: text,
+                      });
+                    }}
+                    style={{
+                      width: '80%',
+                      height: 50,
+                      color: '#000',
+                      paddingVertical: 3,
+                      backgroundColor: '#f2f2f2',
+                      borderRadius: 10,
+                      alignSelf: 'center',
+                      paddingHorizontal: 10,
+                      fontSize: 14,
+                    }}
+                  />
+                </QuickView>
+              </QuickView>
+              <Text
+                style={{
+                  marginVertical: 10,
+                  marginLeft: 20,
+                  fontSize: 16,
+                  marginTop: 30,
+                }}>
+                Email Address
+              </Text>
+              <TextInput
+                placeholder="Type Email..."
+                keyboardType="default"
+                placeholderTextColor="#cccccc"
+                onChangeText={(text: any) => {
+                  this.setState({
+                    phoneNumber: text,
+                  });
+                }}
+                style={{
+                  width: '90%',
+                  height: 50,
+                  color: '#000',
+                  paddingVertical: 3,
+                  backgroundColor: '#f2f2f2',
+                  borderRadius: 10,
+                  alignSelf: 'center',
+                  paddingHorizontal: 10,
+                  fontSize: 14,
+                }}
+              />
+              <Text
+                style={{
+                  marginVertical: 10,
+                  marginLeft: 20,
+                  marginTop: 30,
+                  fontSize: 16,
+                }}>
+                Phone Number
+              </Text>
+              <TextInput
+                placeholder="Type Phone Number..."
+                keyboardType="numeric"
+                placeholderTextColor="#cccccc"
+                onChangeText={(text: any) => {
+                  this.setState({
+                    phoneNumber: text,
+                  });
+                }}
+                style={{
+                  width: '90%',
+                  height: 50,
+                  color: '#000',
+                  paddingVertical: 3,
+                  backgroundColor: '#f2f2f2',
+                  borderRadius: 10,
+                  alignSelf: 'center',
+                  paddingHorizontal: 10,
+                  fontSize: 14,
+                }}
+              />
+              <Text
+                style={{
+                  marginBottom: 10,
+                  marginLeft: 20,
+                  marginTop: 30,
+                  fontSize: 16,
+                }}>
+                Mật khẩu:
+              </Text>
+              <TextInput
+                placeholder="Type Password..."
+                placeholderTextColor="#cccccc"
+                onChangeText={(text: any) => {
+                  this.setState({
+                    password: text,
+                  });
+                }}
+                style={{
+                  width: '90%',
+                  height: 50,
+                  color: '#000',
+                  paddingVertical: 3,
+                  backgroundColor: '#f2f2f2',
+                  borderRadius: 10,
+                  alignSelf: 'center',
+                  paddingHorizontal: 10,
+                  fontSize: 14,
+                }}
+                secureTextEntry={true}
+              />
+              <Text
+                style={{
+                  marginBottom: 10,
+                  marginLeft: 20,
+                  marginTop: 30,
+                  fontSize: 16,
+                }}>
+                Nhập lại mật khẩu:
+              </Text>
+              <TextInput
+                placeholder="Type Password..."
+                placeholderTextColor="#cccccc"
+                style={{
+                  width: '90%',
+                  height: 50,
+                  color: '#000',
+                  paddingVertical: 3,
+                  backgroundColor: '#f2f2f2',
+                  borderRadius: 10,
+                  alignSelf: 'center',
+                  paddingHorizontal: 10,
+                  fontSize: 14,
+                }}
+                secureTextEntry={true}
+              />
+            </QuickView>
+          </Body>
+          <TouchableOpacity
+            style={{
+              position: 'absolute',
+              bottom: 30,
+              width: width - 50,
+              height: 50,
+              alignSelf: 'center',
+              alignItems: 'center',
+              backgroundColor: '#eb2025',
+              borderRadius: 10,
+            }}>
+            <Text
+              style={{
+                marginTop: 15,
+                color: '#FFFFFF',
+                fontWeight: 'bold',
+                fontSize: 18,
+              }}>
+              Create My Account
+            </Text>
+          </TouchableOpacity>
         </Container>
       </KeyboardAvoidingView>
     );
