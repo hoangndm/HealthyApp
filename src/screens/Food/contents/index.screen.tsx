@@ -5,8 +5,8 @@ import _ from 'lodash';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 // import ListNoti from '../../Notification/contents/NotificationList.screen';
 import {Container, QuickView} from '@src/components';
-import listFood from '../../Food/contents/ListFood.screen';
-import listFoodTomorrow from '../../Food/contents/ListFoodTomorrow.screen';
+import listFood from './ListFood.screen';
+import listFoodTomorrow from './ListFoodTomorrow.screen';
 import {Dimensions, Text} from 'react-native';
 import {Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
@@ -16,7 +16,7 @@ interface State {
   selectedDate: any;
 }
 
-export class HomeScreen extends Component {
+export class ListScreen extends Component {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -100,4 +100,4 @@ export class HomeScreen extends Component {
   }
 }
 
-export default HomeScreen;
+export default ListScreen;

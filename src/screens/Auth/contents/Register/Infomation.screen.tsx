@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {
   Text,
   Image,
@@ -10,44 +10,14 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import {QuickView, Container, Body} from '@src/components';
-import {connect} from 'react-redux';
 import NavigationService from '@utils/navigation';
-import LinearGradient from 'react-native-linear-gradient';
-import authStack from '../../../routes';
-import {Login} from '../redux/slice';
-import Config from 'react-native-config';
+
+import {QuickView, Container, Body} from '@src/components';
+import authStack from '@screens/Auth/routes';
 
 const {width, height} = Dimensions.get('window');
-interface Props {
-  screenLogin: any;
-  auth: any;
-  loading: boolean;
-  error: any;
-}
-interface State {
-  phoneNumber: string;
-  password: string;
-}
-class LoginScreen extends PureComponent<Props, State> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      phoneNumber: '',
-      password: '',
-    };
-  }
 
-  handleDataLogin = () => {
-    const {phoneNumber, password} = this.state;
-    const {screenLogin} = this.props;
-    const data = {
-      phoneNumber: phoneNumber,
-      password: password,
-    };
-    screenLogin(data);
-  };
-
+export class InfomationScreen extends Component {
   render() {
     return (
       <KeyboardAvoidingView
@@ -72,11 +42,11 @@ class LoginScreen extends PureComponent<Props, State> {
                   marginTop: 40,
                   color: '#222222',
                 }}>
-                Login
+                More Information
               </Text>
               <Text
                 style={{textAlign: 'center', color: '#555555', fontSize: 16}}>
-                Continue to Heart Health
+                We just need a little more information to complete your avatar
               </Text>
               <Text
                 style={{
@@ -84,7 +54,7 @@ class LoginScreen extends PureComponent<Props, State> {
                   marginTop: 50,
                   fontSize: 17,
                 }}>
-                Username:
+                Height:
               </Text>
               <TextInput
                 placeholder="Type username..."
@@ -106,14 +76,15 @@ class LoginScreen extends PureComponent<Props, State> {
               <Text
                 style={{
                   marginBottom: 10,
-                  marginTop: 40,
+                  marginTop: 20,
                   fontSize: 17,
                 }}>
-                Password:
+                Weight:
               </Text>
               <TextInput
-                placeholder="Type password..."
-                placeholderTextColor="#CCD2E0"
+                placeholder="Type username..."
+                keyboardType="numeric"
+                placeholderTextColor="#cccccc"
                 style={{
                   width: '100%',
                   height: 50,
@@ -125,33 +96,61 @@ class LoginScreen extends PureComponent<Props, State> {
                   paddingHorizontal: 10,
                   fontSize: 14,
                 }}
-                onChangeText={(text) => this.setState({password: text})}
-                secureTextEntry={true}
+                onChangeText={(text) => this.setState({phoneNumber: text})}
               />
-              <QuickView row paddingHorizontal={20} marginTop={35} center>
-                <Text style={{fontSize: 16, color: '#555555'}}>
-                  Don't have an account,{' '}
-                </Text>
-                <QuickView alignItems="flex-start">
-                  <TouchableOpacity
-                    onPress={() =>
-                      NavigationService.navigate(authStack.registerScreen)
-                    }>
-                    <Text
-                      style={{
-                        color: '#FC423D',
-                        fontSize: 16,
-                        fontWeight: 'bold',
-                      }}>
-                      Register
-                    </Text>
-                  </TouchableOpacity>
-                </QuickView>
-              </QuickView>
+              <Text
+                style={{
+                  marginBottom: 10,
+                  marginTop: 20,
+                  fontSize: 17,
+                }}>
+                Gender at Birth:
+              </Text>
+              <TextInput
+                placeholder="Type username..."
+                keyboardType="numeric"
+                placeholderTextColor="#cccccc"
+                style={{
+                  width: '100%',
+                  height: 50,
+                  color: '#000',
+                  paddingVertical: 3,
+                  backgroundColor: '#f2f2f2',
+                  borderRadius: 10,
+                  alignSelf: 'center',
+                  paddingHorizontal: 10,
+                  fontSize: 14,
+                }}
+                onChangeText={(text) => this.setState({phoneNumber: text})}
+              />
+              <Text
+                style={{
+                  marginBottom: 10,
+                  marginTop: 20,
+                  fontSize: 17,
+                }}>
+                Date of Birth:
+              </Text>
+              <TextInput
+                placeholder="Type username..."
+                keyboardType="numeric"
+                placeholderTextColor="#cccccc"
+                style={{
+                  width: '100%',
+                  height: 50,
+                  color: '#000',
+                  paddingVertical: 3,
+                  backgroundColor: '#f2f2f2',
+                  borderRadius: 10,
+                  alignSelf: 'center',
+                  paddingHorizontal: 10,
+                  fontSize: 14,
+                }}
+                onChangeText={(text) => this.setState({phoneNumber: text})}
+              />
             </QuickView>
           </Body>
           <TouchableOpacity
-            onPress={this.handleDataLogin}
             style={{
               position: 'absolute',
               bottom: 30,
@@ -169,7 +168,7 @@ class LoginScreen extends PureComponent<Props, State> {
                 fontWeight: 'bold',
                 fontSize: 18,
               }}>
-              Login
+              Continue
             </Text>
           </TouchableOpacity>
         </Container>
@@ -177,14 +176,5 @@ class LoginScreen extends PureComponent<Props, State> {
     );
   }
 }
-const mapStateToProps = (state: any) => ({
-  auth: state.auth.login.data,
-  loading: state.auth.login.loading,
-  error: state.auth.login.error,
-});
 
-const mapDispatchToProps = (dispatch: any) => ({
-  screenLogin: (data: any) => dispatch(Login(data)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
+export default InfomationScreen;

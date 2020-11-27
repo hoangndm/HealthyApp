@@ -79,7 +79,6 @@ class NotificationList extends PureComponent<Props, State> {
   );
   render() {
     const {data, loading, total, getNextPage, resetData} = this.props;
-    console.log('alooooooo', data);
 
     return (
       <Container backgroundColor="#FFFFFF">
