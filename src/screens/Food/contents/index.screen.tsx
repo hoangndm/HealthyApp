@@ -7,8 +7,9 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import {Container, QuickView} from '@src/components';
 import listFood from './ListFood.screen';
 import listFoodTomorrow from './ListFoodTomorrow.screen';
-import {Dimensions, Text} from 'react-native';
+import {Dimensions, SafeAreaView, Text, TouchableOpacity} from 'react-native';
 import {Icon} from 'react-native-elements';
+import NavigationService from '@utils/navigation';
 const {width, height} = Dimensions.get('window');
 
 const Tab = createMaterialTopTabNavigator();
@@ -27,6 +28,7 @@ export class ListScreen extends Component {
   render() {
     return (
       <Container backgroundColor="#FFFFFF">
+        <SafeAreaView style={{backgroundColor: '#1d9d9e'}} />
         <QuickView
           width={width}
           height={60}
@@ -37,12 +39,14 @@ export class ListScreen extends Component {
           }}>
           <QuickView row paddingHorizontal={20} marginTop={20}>
             <QuickView width="40%" alignItems="flex-start">
-              <Icon
-                color="#FFFFFF"
-                size={30}
-                name="chevron-back"
-                type="ionicon"
-              />
+              <TouchableOpacity onPress={() => NavigationService.goBack()}>
+                <Icon
+                  color="#FFFFFF"
+                  size={30}
+                  name="chevron-back"
+                  type="ionicon"
+                />
+              </TouchableOpacity>
             </QuickView>
             <QuickView width="50%" alignItems="flex-start">
               <Text

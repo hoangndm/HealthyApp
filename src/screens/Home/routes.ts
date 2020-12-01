@@ -3,7 +3,8 @@
  */
 const homeStack = {
   homeScreen: 'homeScreen',
-  notifiScreen: 'notifiScreen',
+  foodScreen: 'foodScreen',
+  workoutScreen: 'workoutScreen',
 };
 
 export default homeStack;

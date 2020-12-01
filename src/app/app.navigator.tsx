@@ -18,15 +18,15 @@ class AppNavigator extends Component<Props, State> {
   initRender = () => {
     const {isToken} = this.props;
     // if (isToken) {
-      return (
-        <Stack.Screen
-          name={rootStack.homeStack}
-          component={RootStack}
-          options={{
-            headerShown: false,
-          }}
-        />
-      );
+    return (
+      <Stack.Screen
+        name={rootStack.homeStack}
+        component={RootStack}
+        options={{
+          headerShown: false,
+        }}
+      />
+    );
     // } else {
     //   return (
     //     <Stack.Screen

@@ -405,10 +405,10 @@ PODS:
     - React-Core
   - react-native-safe-area-context (3.1.8):
     - React-Core
-  - react-native-video (4.4.5):
+  - react-native-video (5.1.0-alpha8):
     - React
-    - react-native-video/Video (= 4.4.5)
-  - react-native-video/Video (4.4.5):
+    - react-native-video/Video (= 5.1.0-alpha8)
+  - react-native-video/Video (5.1.0-alpha8):
     - React
   - react-native-webview (10.9.1):
     - React-Core
@@ -803,7 +803,7 @@ SPEC CHECKSUMS:
   react-native-image-resizer: a79bcffdef1b52160ff91db0d6fa24816a4ff332
   react-native-netinfo: 250dc0ca126512f618a8a2ca6a936577e1f66586
   react-native-safe-area-context: 79fea126c6830c85f65947c223a5e3058a666937
-  react-native-video: eee541262ada11bc7ffe8ec5508e6a877937c462
+  react-native-video: dbb8df4f0bbdf80de6797c90fcad8bc12b19401d
   react-native-webview: c981c0de33cdc842884469b008f067d6132ad7a5
   React-RCTActionSheet: 910163b6b09685a35c4ebbc52b66d1bfbbe39fc5
   React-RCTAnimation: 9a883bbe1e9d2e158d4fb53765ed64c8dc2200c6

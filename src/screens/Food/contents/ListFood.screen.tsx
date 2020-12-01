@@ -20,16 +20,31 @@ class ListFood extends Component<Props> {
       style={{
         elevation: 1,
         paddingBottom: 20,
+        shadowColor: 'rgba(0, 0, 0, 0.2)',
+        shadowOffset: {
+          width: 0,
+          height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
       }}>
       <QuickView
         position="absolute"
         top={10}
         paddingVertical={3}
         paddingHorizontal={10}
-        backgroundColor="rgb(158, 29, 83)"
+        backgroundColor={
+          item.status === 'Breakfast'
+            ? 'rgb(158, 29, 83)'
+            : item.status === 'Lunch'
+            ? '#f2ac30'
+            : 'rgb(66, 132, 226)'
+        }
         borderRadius={10}
         style={{zIndex: 1000, left: 10}}>
-        <Text style={{color: '#FFFFFF', fontWeight: 'bold'}}>aloo</Text>
+        <Text style={{color: '#FFFFFF', fontWeight: 'bold'}}>
+          {item.status}
+        </Text>
       </QuickView>
       <Image
         style={{
@@ -71,7 +86,6 @@ class ListFood extends Component<Props> {
     </QuickView>
   );
   render() {
-    const data = this.props.route.params;
     const dataToday = [
       {
         name: 'Kale Smoothie',
@@ -79,6 +93,7 @@ class ListFood extends Component<Props> {
         image: require('@src/assets/images/1.png'),
         time: '40 mins',
         amount: '330 kcal',
+        status: 'Breakfast',
       },
       {
         name: 'Baked sweet potatoes with spinach and pine nuts',
@@ -86,6 +101,7 @@ class ListFood extends Component<Props> {
         image: require('@src/assets/images/2.png'),
         time: '20 mins',
         amount: '530 kcal',
+        status: 'Lunch',
       },
       {
         name: 'Creamy turkey and bell pepper over rice',
@@ -93,9 +109,9 @@ class ListFood extends Component<Props> {
         image: require('@src/assets/images/3.png'),
         time: '30 mins',
         amount: '230 kcal',
+        status: 'Dinner',
       },
     ];
-    console.log(data);
     return (
       <Container paddingTop={30} backgroundColor="#FFFFFF">
         <Body type="full-height">
