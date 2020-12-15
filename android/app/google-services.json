@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "689802192751",
+    "project_id": "hearthapp-4c49e",
+    "storage_bucket": "hearthapp-4c49e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689802192751:android:43c5859b77363b1572ea9a",
+        "android_client_info": {
+          "package_name": "com.healthyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689802192751-7bd3kjldjqpui1p1l65rnhq4tt1updn0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAikRC0JdEB0LvDK6jvGExWt87daJPF-0I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689802192751-7bd3kjldjqpui1p1l65rnhq4tt1updn0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689802192751:android:489b9bd2014f14fc72ea9a",
+        "android_client_info": {
+          "package_name": "com.hearthapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689802192751-7bd3kjldjqpui1p1l65rnhq4tt1updn0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAikRC0JdEB0LvDK6jvGExWt87daJPF-0I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689802192751-7bd3kjldjqpui1p1l65rnhq4tt1updn0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
